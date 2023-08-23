@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load ststic %}
+{% block metadescription %}
+  {% if category %}
+    {{category.description|truncatewords:155}}
+  {% else%}
+    Welcome to ABC Store Where you can buy anything
+  {% endif %}
+{% endblock %}
+{% block title %}
+  {% if category %}
+    {{category.name}}-ABC Store
+  {% else %}
+    see our new collection
+  {% endif %}
+{% endblock %}
+{% block content %}
+  {% if category %}
+    <div>
+      <div>
+
+        <p>
+          <a href="{% url 'shop=allproductcat' %}"> our product version </a>
+        </p>
+      </div>
+    </div>
+  {% endif %}
+<div>
+  {% if category %}
+    <img src="{{category.image.url}}" alt="{{category.name}}">
+</div>
+<br>
+<div>
+  <h1>{{category.name}}</h1>
+  <p>{{category.description}}</p>
+</div>
+  {% else %}
+<div>
+    <img src="{% statix 'img/bannner.png' %}" alt="our products">
+</div>
+<br>
+<div>
+  <h1>our products collection </h1>
+  <p> Popular brands</p>
+</div>
+{% endif %}
+<div>
+  <div>
+    {% for product in products %}
+    <div>
+      <div>
+        <a href="">
+          <img src="{{product.img.url}}" alt="{{product.name"}}>
+        </a>
+        <div>
+          <h4>{{product.name}}</h4>
+          <p>{{product.price}}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

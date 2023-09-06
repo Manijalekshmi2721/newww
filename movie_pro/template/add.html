@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data" ><br>
+    {% csrf_token %}
+  <input type="text" name="name" placeholder="Enter the movie name"><br>
+  <input type="text" name="desc" placeholder="enter the description"><br>
+  <input type="text" name="year" placeholder="Enter the year of the movie"><br>
+    <input type="file" name="img" placeholder="choose file"><br>
+    <input type="submit" name="subm" value="Add">
+    <input type="submit" name="canc" value="Cancel">
+</form>
+
+</body>
+</html>
